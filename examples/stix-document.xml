@@ -1,0 +1,41 @@
+<stix:STIX_Package
+	xmlns:cybox="http://cybox.mitre.org/cybox-2"
+	xmlns:AddressObj="http://cybox.mitre.org/objects#AddressObject-2"
+	xmlns:marking="http://data-marking.mitre.org/Marking-1"
+	xmlns:tlpMarking="http://data-marking.mitre.org/extensions/MarkingStructure#TLP-1"
+    xmlns:terms="http://data-marking.mitre.org/extensions/MarkingStructure#Terms_Of_Use-1"
+	xmlns:example="http://example.com"
+	xmlns:indicator="http://stix.mitre.org/Indicator-2"
+	xmlns:stix="http://stix.mitre.org/stix-1"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    id="example:Package-a63991ca-85d7-4b45-b3c5-d287e244c24f" version="1.1.1" timestamp="2015-03-05T16:19:54.603000+00:00">
+    <stix:STIX_Header>
+        <stix:Handling>
+            <marking:Marking>
+                <marking:Controlled_Structure>//node() | //@*</marking:Controlled_Structure>
+                <marking:Marking_Structure xsi:type='tlpMarking:TLPMarkingStructureType' color='GREEN'/>
+                <marking:Marking_Structure xsi:type='terms:TermsOfUseMarkingStructureType'>
+                        <terms:Terms_Of_Use>Copyright (c) 2016, The MITRE Corporation</terms:Terms_Of_Use>
+                </marking:Marking_Structure>
+            </marking:Marking>
+        </stix:Handling>
+    </stix:STIX_Header>
+    <stix:Indicators>
+        <stix:Indicator id="example:indicator-44c5bff4-ecb7-4110-96af-27b1e964b815" xsi:type='indicator:IndicatorType'>
+            <indicator:Title>Test</indicator:Title>
+            <indicator:Observable id="example:Observable-Target-ID-Value">
+                <cybox:Object id="example:Address-70da2adc-5948-4fcf-a8bb-b9a91ab10f7a">
+                    <cybox:Properties xsi:type="AddressObj:AddressObjectType">
+                        <AddressObj:Address_Value>10.0.0.1</AddressObj:Address_Value>
+                    </cybox:Properties>
+                </cybox:Object>
+            </indicator:Observable>
+            <indicator:Handling>
+                <marking:Marking>
+                    <marking:Controlled_Structure>../../../descendant-or-self::node() | ../../../descendant-or-self::node()/@*</marking:Controlled_Structure>
+                    <marking:Marking_Structure xsi:type='tlpMarking:TLPMarkingStructureType' color='AMBER'/>
+                </marking:Marking>
+            </indicator:Handling>
+        </stix:Indicator>
+    </stix:Indicators>
+</stix:STIX_Package>
