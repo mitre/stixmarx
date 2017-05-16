@@ -5,7 +5,6 @@
 Defines a mapping of Python object properties to XML fieldnames.
 """
 
-import stixmarx.fields
 from stixmarx import fields
 from stixmarx import utils
 
@@ -59,7 +58,7 @@ def mapping(entity):
     klass = utils.fully_qualified_name(entity)
     nomap = {}
 
-    if klass in fields.FIELDS:
-        return fields.FIELDS[klass]
+    if klass in fields.get_field_mappings():
+        return fields.get_field_mappings().get(klass)
     else:
         return nomap

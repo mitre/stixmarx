@@ -5,14 +5,11 @@
 import logging
 import collections
 
-# external
-from mixbox.vendor.six import text_type, binary_type
-
 # internal
 from stixmarx import xml
 
 
-# module-level logger
+# Module-level logger
 LOG = logging.getLogger(__name__)
 
 # Required for finding data-marking schema instances.
