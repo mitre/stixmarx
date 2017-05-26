@@ -5,7 +5,7 @@
 import logging
 
 # internal
-from stixmarx.version import __version__
+from stixmarx.version import __version__  # noqa
 
 # Console Handler for stixmarx messages
 ch = logging.StreamHandler()

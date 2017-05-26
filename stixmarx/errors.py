@@ -41,9 +41,9 @@ class InvalidRootError(Exception):
 
 
 class IdLookupError(Exception):
-    def __init__(self, message, id):
+    def __init__(self, message, id_):
         super(IdLookupError, self).__init__(message)
-        self.id = id
+        self.id_ = id_
 
 
 class InvalidModeError(Exception):
@@ -69,6 +69,8 @@ class MarkingPathNotEmpty(Exception):
 class MarkingRemovalError(Exception):
     def __init__(self, message, entity, marking):
         super(MarkingRemovalError, self).__init__(message)
+        self.entity = entity
+        self.marking = marking
 
 
 class SerializerMappingError(Exception):

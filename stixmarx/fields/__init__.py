@@ -31,9 +31,9 @@ def _initialize_fields():
             else:
                 from stixmarx.fields.stix.stix1118 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
-                message = ("No compatible stix {v} mappings found. Loaded "
+                message = ("No compatible stix %s mappings found. Loaded "
                            "latest unchanged 1.1.1.8 field mappings.")
-                LOG.info(message.format(v=utils.stix.__version__))
+                LOG.info(message, utils.stix.__version__)
 
         elif utils.stix.__version__.startswith("1.2.0."):
             if utils.stix.__version__ == "1.2.0.1":
@@ -48,13 +48,13 @@ def _initialize_fields():
             else:
                 from stixmarx.fields.stix.stix1203 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
-                message = ("No compatible stix {v} mappings found. Loaded "
+                message = ("No compatible stix %s mappings found. Loaded "
                            "latest unchanged 1.2.0.3 field mappings.")
-                LOG.info(message.format(v=utils.stix.__version__))
+                LOG.info(message, utils.stix.__version__)
 
         else:
-            message = "No compatible stix version found. Got {v}"
-            LOG.warning(message.format(v=utils.stix.__version__))
+            message = "No compatible stix version found. Got %s"
+            LOG.warning(message, utils.stix.__version__)
     else:
         message = "No STIX library found in environment."
         LOG.debug(message)
@@ -67,13 +67,13 @@ def _initialize_fields():
             else:
                 from stixmarx.fields.cybox.cybox21013 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
-                message = ("No compatible cybox {v} mappings found. Loaded "
+                message = ("No compatible cybox %s mappings found. Loaded "
                            "latest unchanged 2.1.0.13 field mappings.")
-                LOG.info(message.format(v=utils.cybox.__version__))
+                LOG.info(message, utils.cybox.__version__)
 
         else:
-            message = "No compatible cybox version found. Got {v}"
-            LOG.warning(message.format(v=utils.cybox.__version__))
+            message = "No compatible cybox version found. Got %s"
+            LOG.warning(message, utils.cybox.__version__)
     else:
         message = "No CybOX library found in environment."
         LOG.debug(message)
@@ -86,12 +86,12 @@ def _initialize_fields():
             else:
                 from stixmarx.fields.maec.maec41013 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
-                message = ("No compatible maec {v} mappings found. Loaded "
+                message = ("No compatible maec %s mappings found. Loaded "
                            "latest unchanged 4.1.0.13 field mappings.")
-                LOG.info(message.format(v=utils.maec.__version__))
+                LOG.info(message, utils.maec.__version__)
         else:
-            message = "No compatible maec version found. Got {v}"
-            LOG.warning(message.format(v=utils.maec.__version__))
+            message = "No compatible maec version found. Got %s"
+            LOG.warning(message, utils.maec.__version__)
     else:
         message = "No MAEC library found in environment."
         LOG.debug(message)

@@ -258,7 +258,7 @@ class MarkingSerializer(object):
             result = None
 
             for properties in path[index].typed_fields_with_attrnames():
-                attr, tf = properties
+                attr = properties[0]
 
                 val = getattr(path[index], attr)
 
@@ -361,7 +361,7 @@ class MarkingSerializer(object):
                 return object_.index(to_find) + 1
 
         for properties in object_.typed_fields_with_attrnames():
-            attr, tf = properties
+            attr = properties[0]
 
             val = getattr(object_, attr)
 

@@ -152,19 +152,19 @@ def is_castable(obj):
         return type(obj) in TYPEMAP
 
 
-def cast(input):
+def cast(input_):
     """Convert the castable `input` object into a markable object.
 
     Args:
-        input: A castable object or a list of castable objects.
+        input_: A castable object or a list of castable objects.
 
     Returns:
         A markable conversion of the `input` object. E.g., A `str` object will
         become a MarkableString object.
     """
-    if utils.is_list(input):
-        return [cast(x) for x in input]
+    if utils.is_list(input_):
+        return [cast(x) for x in input_]
 
-    type_ = type(input)
+    type_ = type(input_)
     klass = TYPEMAP[type_]
-    return klass(input)
+    return klass(input_)
