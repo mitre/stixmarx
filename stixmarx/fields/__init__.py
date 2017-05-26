@@ -24,49 +24,74 @@ def _initialize_fields():
     utils._load_mixbox()
 
     if utils.stix:
-        if utils.stix.__version__ == "1.1.1.8":
-            from stixmarx.fields.stix.stix1118 import _FIELDS
-            _FIELD_MAPPINGS.update(_FIELDS)
-        elif utils.stix.__version__ == "1.2.0.1":
-            from stixmarx.fields.stix.stix1201 import _FIELDS
-            _FIELD_MAPPINGS.update(_FIELDS)
-        elif utils.stix.__version__ == "1.2.0.2":
-            from stixmarx.fields.stix.stix1202 import _FIELDS
-            _FIELD_MAPPINGS.update(_FIELDS)
-        elif utils.stix.__version__ == "1.2.0.3":
-            from stixmarx.fields.stix.stix1203 import _FIELDS
-            _FIELD_MAPPINGS.update(_FIELDS)
-        elif utils.stix.__version__ == "1.2.0.4":
-            from stixmarx.fields.stix.stix1203 import _FIELDS
-            _FIELD_MAPPINGS.update(_FIELDS)
+        if utils.stix.__version__.startswith("1.1.1."):
+            if utils.stix.__version__ in ("1.1.1.8", "1.1.1.9"):
+                from stixmarx.fields.stix.stix1118 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+            else:
+                from stixmarx.fields.stix.stix1118 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+                message = ("No compatible stix {v} mappings found. Loaded "
+                           "latest unchanged 1.1.1.8 field mappings.")
+                LOG.info(message.format(v=utils.stix.__version__))
+
+        elif utils.stix.__version__.startswith("1.2.0."):
+            if utils.stix.__version__ == "1.2.0.1":
+                from stixmarx.fields.stix.stix1201 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+            elif utils.stix.__version__ == "1.2.0.2":
+                from stixmarx.fields.stix.stix1202 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+            elif utils.stix.__version__ in ("1.2.0.3", "1.2.0.4"):
+                from stixmarx.fields.stix.stix1203 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+            else:
+                from stixmarx.fields.stix.stix1203 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+                message = ("No compatible stix {v} mappings found. Loaded "
+                           "latest unchanged 1.2.0.3 field mappings.")
+                LOG.info(message.format(v=utils.stix.__version__))
+
         else:
-            message = "No compatible stix version found. Got {0}"
-            LOG.warning(message.format(utils.stix.__version__))
+            message = "No compatible stix version found. Got {v}"
+            LOG.warning(message.format(v=utils.stix.__version__))
     else:
         message = "No STIX library found in environment."
         LOG.debug(message)
 
     if utils.cybox:
-        if utils.cybox.__version__ == "2.1.0.13":
-            from stixmarx.fields.cybox.cybox21013 import _FIELDS
-            _FIELD_MAPPINGS.update(_FIELDS)
-        elif utils.cybox.__version__ == "2.1.0.14":
-            from stixmarx.fields.cybox.cybox21013 import _FIELDS
-            _FIELD_MAPPINGS.update(_FIELDS)
+        if utils.cybox.__version__.startswith("2.1.0."):
+            if utils.cybox.__version__ in ("2.1.0.13", "2.1.0.14"):
+                from stixmarx.fields.cybox.cybox21013 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+            else:
+                from stixmarx.fields.cybox.cybox21013 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+                message = ("No compatible cybox {v} mappings found. Loaded "
+                           "latest unchanged 2.1.0.13 field mappings.")
+                LOG.info(message.format(v=utils.cybox.__version__))
+
         else:
-            message = "No compatible cybox version found. Got {0}"
-            LOG.warning(message.format(utils.cybox.__version__))
+            message = "No compatible cybox version found. Got {v}"
+            LOG.warning(message.format(v=utils.cybox.__version__))
     else:
         message = "No CybOX library found in environment."
         LOG.debug(message)
 
     if utils.maec:
-        if utils.maec.__version__ == "4.1.0.13":
-            from stixmarx.fields.maec.maec41013 import _FIELDS
-            _FIELD_MAPPINGS.update(_FIELDS)
+        if utils.maec.__version__.startswith("4.1.0."):
+            if utils.maec.__version__ == "4.1.0.13":
+                from stixmarx.fields.maec.maec41013 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+            else:
+                from stixmarx.fields.maec.maec41013 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+                message = ("No compatible maec {v} mappings found. Loaded "
+                           "latest unchanged 4.1.0.13 field mappings.")
+                LOG.info(message.format(v=utils.maec.__version__))
         else:
-            message = "No compatible maec version found. Got {0}"
-            LOG.warning(message.format(utils.maec.__version__))
+            message = "No compatible maec version found. Got {v}"
+            LOG.warning(message.format(v=utils.maec.__version__))
     else:
         message = "No MAEC library found in environment."
         LOG.debug(message)
