@@ -1,9 +1,10 @@
 stixmarx
 ========
 
-An API for marking STIX data.
+A Python API for marking STIX data.
 
-:Source: https://github.com/mitre/stixmarx
+:Source: https://github.com/mitre/stixmarx/
+:Documentation: http://stixmarx.readthedocs.org/
 :Information: https://stixproject.github.io/
 
 |travis badge| |landscape.io badge| |version badge| |downloads badge|

@@ -237,13 +237,13 @@ def parse_package(xml_input, encoding=None):
     return parser.parse_xml(xml_input, encoding=encoding)
 
 
-def lookup(package, id):
-    entity = package.find(id)
+def lookup(package, id_):
+    entity = package.find(id_)
 
     if not entity:
         msg = "Failed to find entity in STIX Package with ID {0}"
-        msg = msg.format(id)
-        raise errors.IdLookupError(message=msg, id=id)
+        msg = msg.format(id_)
+        raise errors.IdLookupError(message=msg, id_=id_)
 
     return entity
 
