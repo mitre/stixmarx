@@ -148,6 +148,8 @@ def localname(node):
     Returns:
         A string XML localname.
     """
+    if node is None:
+        return None
     if is_attribute(node):
         return etree.QName(node.attrname).localname
     else:
