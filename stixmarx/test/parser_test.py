@@ -15,7 +15,7 @@ from stixmarx.api import types
 # so we just modify the XML based on the version of python-stix installed.
 if stix.__version__ >= "1.2.0.0":
     stix_version = "1.2"
-elif stix.__version__ >= "1.1.1.7":
+else:
     stix_version = "1.1.1"
 
 XML_GLOBAL = """
