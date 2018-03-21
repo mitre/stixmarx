@@ -29,10 +29,10 @@ def _initialize_fields():
                 from stixmarx.fields.stix.stix1118 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
             else:
-                from stixmarx.fields.stix.stix1118 import _FIELDS
+                from stixmarx.fields.stix.stix11110 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
                 message = ("No compatible stix %s mappings found. Loaded "
-                           "latest unchanged 1.1.1.8 field mappings.")
+                           "latest unchanged 1.1.1.10 field mappings.")
                 LOG.info(message, utils.stix.__version__)
 
         elif utils.stix.__version__.startswith("1.2.0."):
@@ -42,14 +42,20 @@ def _initialize_fields():
             elif utils.stix.__version__ == "1.2.0.2":
                 from stixmarx.fields.stix.stix1202 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
-            elif utils.stix.__version__ in ("1.2.0.3", "1.2.0.4"):
+            elif utils.stix.__version__ == "1.2.0.3":
                 from stixmarx.fields.stix.stix1203 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+            elif utils.stix.__version__ == "1.2.0.4":
+                from stixmarx.fields.stix.stix1204 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
+            elif utils.stix.__version__ == "1.2.0.5":
+                from stixmarx.fields.stix.stix1205 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
             else:
-                from stixmarx.fields.stix.stix1203 import _FIELDS
+                from stixmarx.fields.stix.stix1205 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
                 message = ("No compatible stix %s mappings found. Loaded "
-                           "latest unchanged 1.2.0.3 field mappings.")
+                           "latest unchanged 1.2.0.5 field mappings.")
                 LOG.info(message, utils.stix.__version__)
 
         else:
@@ -64,11 +70,14 @@ def _initialize_fields():
             if utils.cybox.__version__ in ("2.1.0.13", "2.1.0.14"):
                 from stixmarx.fields.cybox.cybox21013 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
+            elif utils.cybox.__version__ in ("2.1.0.15", "2.1.0.16"):
+                from stixmarx.fields.cybox.cybox21016 import _FIELDS
+                _FIELD_MAPPINGS.update(_FIELDS)
             else:
-                from stixmarx.fields.cybox.cybox21013 import _FIELDS
+                from stixmarx.fields.cybox.cybox21016 import _FIELDS
                 _FIELD_MAPPINGS.update(_FIELDS)
                 message = ("No compatible cybox %s mappings found. Loaded "
-                           "latest unchanged 2.1.0.13 field mappings.")
+                           "latest unchanged 2.1.0.16 field mappings.")
                 LOG.info(message, utils.cybox.__version__)
 
         else:
