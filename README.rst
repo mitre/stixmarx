@@ -7,20 +7,7 @@ A Python API for marking STIX data.
 :Documentation: http://stixmarx.readthedocs.org/
 :Information: https://stixproject.github.io/
 
-|travis badge| |landscape.io badge| |version badge| |downloads badge|
-
-.. |travis badge| image:: https://travis-ci.org/mitre/stixmarx.svg?branch=master&style=flat-square
-    :target: https://travis-ci.org/mitre/stixmarx
-    :alt: Build Status
-.. |landscape.io badge| image:: https://landscape.io/github/mitre/stixmarx/master/landscape.svg?style=flat-square
-    :target: https://landscape.io/github/mitre/stixmarx/master
-    :alt: Code Health
-.. |version badge| image:: https://img.shields.io/pypi/v/stixmarx.svg?maxAge=3600&style=flat-square
-    :target: https://pypi.python.org/pypi/stixmarx/
-    :alt: PyPI Package Index
-.. |downloads badge| image:: https://img.shields.io/pypi/dm/stixmarx.svg?maxAge=3600&style=flat-square
-    :target: https://pypi.python.org/pypi/stixmarx/
-    :alt: PyPI Downloads per month
+|travis_badge| |landscape.io_badge| |version_badge|
 
 Data Markings Concept
 ---------------------
@@ -35,7 +22,7 @@ The following examples demonstrate the intended use of the stixmarx library.
 Adding Markings
 ~~~~~~~~~~~~~~~
 
-::
+.. code-block:: python
 
     # stixmarx imports
     import stixmarx
@@ -91,12 +78,10 @@ Adding Markings
     # Print the XML!
     print container.to_xml()
 
-
-
 Retrieving Markings
 ~~~~~~~~~~~~~~~~~~~
 
-::
+.. code-block:: python
 
     # stixmarx
     import stixmarx
@@ -126,7 +111,6 @@ Retrieving Markings
     for marking in indicator_markings:
         print marking.to_dict()
 
-
 Notice
 ------
 
@@ -134,3 +118,13 @@ This software was produced for the U. S. Government, and is subject to the
 Rights in Data-General Clause 52.227-14, Alt. IV (DEC 2007).
 
 Copyright (c) 2017, The MITRE Corporation. All Rights Reserved.
+
+.. |travis_badge| image:: https://travis-ci.org/mitre/stixmarx.svg?branch=master&style=flat-square
+    :target: https://travis-ci.org/mitre/stixmarx
+    :alt: Travis CI Build Status
+.. |landscape.io_badge| image:: https://landscape.io/github/mitre/stixmarx/master/landscape.svg?style=flat-square
+    :target: https://landscape.io/github/mitre/stixmarx/master
+    :alt: Landscape.io Code Health
+.. |version_badge| image:: https://img.shields.io/pypi/v/stixmarx.svg?maxAge=3600&style=flat-square
+    :target: https://pypi.python.org/pypi/stixmarx/
+    :alt: PyPI Package Index
