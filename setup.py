@@ -5,31 +5,22 @@ from os.path import abspath, dirname, join
 from setuptools import setup, find_packages
 
 CUR_DIR = dirname(abspath(__file__))
-INIT_FILE = join(CUR_DIR, 'stixmarx', '__init__.py')
-VERSION_FILE = join(CUR_DIR, 'stixmarx', 'version.py')
+INIT_FILE = join(CUR_DIR, "stixmarx", "__init__.py")
+VERSION_FILE = join(CUR_DIR, "stixmarx", "version.py")
 
 
 def get_version():
     with open(VERSION_FILE) as f:
-        for line in f:
-            if not line.startswith("__version__"):
-                continue
-
-            version = line.split()[-1].strip('"')
-            return version
-
+        for line in f.readlines():
+            if line.startswith("__version__"):
+                version = line.split()[-1].strip("\"")
+                return version
         raise AttributeError("Package does not have a __version__")
 
 
-with open('README.rst') as f:
-    readme = f.read()
-
-
-requirements = [
-    'lxml',
-    'mixbox>=1.0.2',
-    'stix>=1.1.1.8,<1.2.1.0'
-]
+def get_long_description():
+    with open("README.rst") as f:
+        return f.read()
 
 
 setup(
@@ -38,22 +29,26 @@ setup(
     author="The MITRE Corporation",
     author_email="stix@mitre.org",
     description="A data marking API for STIX 1 content.",
-    long_description=readme,
-    url="http://stixproject.github.io/",
+    long_description=get_long_description(),
+    url="https://github.com/mitre/stixmarx",
     packages=find_packages(),
-    install_requires=requirements,
+    install_requires=[
+        "lxml",
+        "mixbox>=1.0.2",
+        "stix>=1.1.1.8,<1.2.1.0"
+    ],
     classifiers=[
-        'Development Status :: 5 - Production/Stable',
-        'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
-        'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.3',
-        'Programming Language :: Python :: 3.4',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
+        "Development Status :: 5 - Production/Stable",
+        "Intended Audience :: Developers",
+        "License :: OSI Approved :: BSD License",
+        "Operating System :: OS Independent",
+        "Programming Language :: Python :: 2",
+        "Programming Language :: Python :: 2.6",
+        "Programming Language :: Python :: 2.7",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.3",
+        "Programming Language :: Python :: 3.4",
+        "Programming Language :: Python :: 3.5",
+        "Programming Language :: Python :: 3.6",
     ]
 )
