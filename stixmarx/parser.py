@@ -69,7 +69,7 @@ class MarkingParser(object):
         _root: The root lxml element of the parsed input document.
         _markingmap: A MarkingMap object which associates each element/attribute
             in the input document with the Marking elements which mark them.
-        _entities: A set of mixbox Entity objects that were created during
+        _entities: A list of mixbox Entity objects that were created during
             parse().
     """
 
@@ -77,7 +77,7 @@ class MarkingParser(object):
         self._encoding = encoding
         self._root = xml.root(root, encoding)
         self._markingmap = markingmap.build(self._root, encoding)
-        self._entities = set()
+        self._entities = list()
 
         # Connect our mixbox signal receiver
         signals.connect("Entity.created.from_obj", self._handle_entity_created)
@@ -86,7 +86,7 @@ class MarkingParser(object):
         """Receiver for the mixbox Entity.created.from_obj signal.
 
         Attach the `binding` object to `entity` via a __binding__ attribute
-        and then store `entity` in the _entities set for later processing.
+        and then store `entity` in the _entities list for later processing.
 
         This allows us to inspect the full ancestry of `entity` since
         __binding__ has a __sourcenode__ attribute containing the lxml node
@@ -96,11 +96,11 @@ class MarkingParser(object):
 
         Args:
             entity: A mixbox Entity object.
-            binding: The generateDS binding object that the `entity` was
+            binding: The generated binding object that the `entity` was
                 created from.
         """
         entity.__binding__ = binding
-        self._entities.add(entity)
+        self._entities.append(entity)
 
     def _set_list_field_marking(self, entity, attr, specs):
         """Attach marking information to each item in the list found in the
@@ -275,7 +275,7 @@ class MarkingParser(object):
         Returns:
             A STIXPackage object.
         """
-        self._entities = set()  # Reset this in case of multiple parse() calls.
+        self._entities = list()  # Reset this in case of multiple parse() calls.
 
         # Parse the STIX Package.
         package = STIXPackage.from_xml(
