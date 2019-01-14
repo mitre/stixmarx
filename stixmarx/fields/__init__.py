@@ -17,6 +17,11 @@ def get_field_mappings():
     return _FIELD_MAPPINGS
 
 
+def update_field_mappings(mappings):
+    global _FIELD_MAPPINGS
+    _FIELD_MAPPINGS.update(mappings)
+
+
 def _initialize_fields():
     utils._load_stix()
     utils._load_cybox()
