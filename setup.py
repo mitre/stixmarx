@@ -33,8 +33,6 @@ setup(
     url="https://github.com/mitre/stixmarx",
     packages=find_packages(),
     install_requires=[
-        "lxml",
-        "mixbox>=1.0.2",
         "stix>=1.1.1.8,<1.2.1.0"
     ],
     license="BSD",
@@ -44,10 +42,8 @@ setup(
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
         "Programming Language :: Python :: 2",
-        "Programming Language :: Python :: 2.6",
         "Programming Language :: Python :: 2.7",
         "Programming Language :: Python :: 3",
-        "Programming Language :: Python :: 3.3",
         "Programming Language :: Python :: 3.4",
         "Programming Language :: Python :: 3.5",
         "Programming Language :: Python :: 3.6",

@@ -79,7 +79,7 @@ def _load_stix():
         import stix.utils.parser as stix_parser
         import stix.utils.nsparser as stix_nsparser
     except (ImportError, ImportWarning) as e:
-        LOG.warning(str(e))
+        LOG.warning(e)
         return
 
     __PYTHON_STIX_LOADED = True
@@ -98,7 +98,7 @@ def _load_cybox():
         import cybox.common as cybox_common
         import cybox.utils.nsparser as cybox_nsparser
     except (ImportError, ImportWarning) as e:
-        LOG.warning(str(e))
+        LOG.warning(e)
         return
 
     __PYTHON_CYBOX_LOADED = True
@@ -116,7 +116,7 @@ def _load_mixbox():
         import mixbox.entities as mixbox_entities
         import mixbox.namespaces as mixbox_ns
     except (ImportError, ImportWarning) as e:
-        LOG.warning(str(e))
+        LOG.warning(e)
         return
 
     __MIXBOX_LOADED = True
@@ -133,7 +133,7 @@ def _load_maec():
         import maec
         import maec.utils.nsparser as maec_nsparser
     except (ImportError, ImportWarning) as e:
-        LOG.warning(str(e))
+        LOG.warning(e)
         return
 
     __PYTHON_MAEC_LOADED = True
