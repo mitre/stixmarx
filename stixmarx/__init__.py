@@ -16,6 +16,7 @@ ch.setFormatter(formatter)
 # Module-level logger
 log = logging.getLogger(__name__)
 log.addHandler(ch)
+log.propagate = False
 
 
 def parse(xml_input, encoding=None):
