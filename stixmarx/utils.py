@@ -575,7 +575,7 @@ class ModelMapper(object):
 
         try:
             for module_loader, name, is_pkg in pkgutil.walk_packages(path=top_level_module.__path__, prefix=prefix):
-                importlib.import_module(name, top_level_module)
+                importlib.import_module(name, module_str)
         except (ImportError, ImportWarning) as e:
             LOG.debug(str(e))
 
