@@ -602,7 +602,7 @@ class ModelMapper(object):
                     result += self._get_class_instances(module_str, klass_)
             except:
                 msg = "{0} could not be instantiated without args."
-                LOG.info(msg.format(klass_))
+                LOG.debug(msg.format(klass_))
                 continue
 
         return result
