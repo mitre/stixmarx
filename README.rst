@@ -4,7 +4,7 @@ stixmarx
 A Python API for marking STIX data.
 
 :Source: https://github.com/mitre/stixmarx/
-:Documentation: http://stixmarx.readthedocs.org/
+:Documentation: https://stixmarx.readthedocs.org/
 :Information: https://stixproject.github.io/
 
 |travis_badge| |landscape.io_badge| |version_badge|
@@ -12,7 +12,7 @@ A Python API for marking STIX data.
 Data Markings Concept
 ---------------------
 
-Learn more about the Data Markings concept `here <http://stixproject.github.io/documentation/concepts/data-markings/>`_.
+Learn more about the Data Markings concept `here <https://stixproject.github.io/documentation/concepts/data-markings/>`_.
 
 Examples
 --------
