@@ -3,11 +3,18 @@
 
 # stdlib
 import logging
-import collections
+
+# external
+from mixbox.vendor.six import PY2, PY3
 
 # internal
 from stixmarx import xml
 
+
+if PY2:
+    from collections import MutableMapping
+elif PY3:
+    from collections.abc import MutableMapping
 
 # Module-level logger
 LOG = logging.getLogger(__name__)
@@ -86,7 +93,7 @@ class _XmlAttribute(object):
         return hash((self.name, self.sourcenode, self.parent))
 
 
-class MarkingMap(collections.MutableMapping):
+class MarkingMap(MutableMapping):
     def __init__(self, encoding=None):
         self._inner = {}
         self._encoding = encoding

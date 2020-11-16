@@ -34,7 +34,7 @@ setup(
     url="https://github.com/mitre/stixmarx",
     packages=find_packages(),
     install_requires=[
-        "stix>=1.1.1.8,<1.2.1.0"
+        "stix>=1.1.1.19,<1.2.1.0"
     ],
     license="BSD",
     classifiers=[
